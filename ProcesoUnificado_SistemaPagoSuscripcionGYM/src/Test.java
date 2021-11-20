@@ -34,16 +34,14 @@ public class Test {
         }
         aceptado=false;
         while(!aceptado){
-            System.out.println("¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Salir");
+            System.out.println("\n\n¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Salir");
             opcion= input.nextInt();
             switch(opcion){
                 case 1:
                     controller.imprimir(indiceUsuario);
-                    aceptado=true;
                     break;
                 case 2:
                     controller.listaUsuarios.get(indiceUsuario).getCliente().comprarMembresia();
-                    aceptado=true;
                     break;
                 case 3:
                     System.out.println("Adios");
@@ -51,10 +49,11 @@ public class Test {
                     break;
                 default:
                     System.out.println("No entiendo esa orden");
+                    break;
             }
-            System.exit(0);
-        }
 
+        }
+        System.exit(0);
 
         }
 

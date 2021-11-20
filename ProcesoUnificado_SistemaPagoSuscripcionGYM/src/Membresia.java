@@ -2,34 +2,38 @@ import java.util.*;
 
 
 public class Membresia {
-    private int tipo;
-    private Date fechInicio;
-    private Date fechFinal;
+
+    private String tipo;
+    //private String fechInicio;
     private double precio;
 
 
-    public Membresia(int tipo, Date fechInicio) {
-        this.tipo = tipo;
-        this.fechInicio = fechInicio;
-        if (tipo==1){
-            this.precio=25;
-        } else if (tipo==2){
-            this.precio=18;
-        } else if(tipo==3){
-            this.precio=2;
-        } else {
-            //error
+    public Membresia(String tipo) {
+        if (tipo.equals("Anual")){
+            this.tipo="Anual";
+            //fechInicio="00/00/00";
+            precio=200;
+
+        } else if(tipo.equals("Mensual")){
+            this.tipo="Mensual";
+            //fechInicio="00/00/00";
+            precio=20;
+
+        } else if (tipo.equals("Semanal")){
+            this.tipo="Semanal";
+            //fechInicio="00/00/00";
+            precio=6;
+        }  else {
+            this.tipo="No valido";
+            precio=0;
         }
 
     }
 
 
-
     @Override
     public String toString() {
-        return "Membresia= " +tipo +
-                ", Fecha Inicio= " + fechInicio +
-                ", Fecha Final= " + fechFinal +
-                ", Precio= $" + precio;
+        return "\nMembresia= "+tipo +
+                "\nPrecio= $" + precio;
     }
 }

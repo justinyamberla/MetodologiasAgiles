@@ -25,10 +25,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "nombreUsuario='" + nombreUsuario + '\'' +
-                ", contraseña='" + contraseña + '\'' +
-                    cliente.toString() +
-                '}';
+        return  "Nombre de Usuario= " + nombreUsuario +
+                "\nContraseña= " + contraseña + "\n" +
+                cliente.toString();
     }
 }

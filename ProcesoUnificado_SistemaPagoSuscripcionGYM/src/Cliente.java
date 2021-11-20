@@ -5,15 +5,15 @@ public class Cliente {
     private int edad;
     private String cedula;
     private String direccion;
-    //private Membresia membresia;
-    private String membresia;
+    private Membresia membresia;
+
 
     public Cliente(String nombre, int edad, String cedula, String direccion, String membresia) {
         this.nombre = nombre;
         this.edad = edad;
         this.cedula = cedula;
         this.direccion = direccion;
-        this.membresia = membresia;
+        this.membresia = new Membresia(membresia);
     }
 
     public void comprarMembresia(){
@@ -22,32 +22,32 @@ public class Cliente {
         String tarjeta=input.nextLine();
         System.out.println("Ingrese su CVV");
         String CVV=input.nextLine();
-        System.out.println("Escoja su nueva membresia:\n1.Mensual\n2.Semanal\n3.Diaria");
+        System.out.println("Escoja su nueva membresia:\n1.Anual\n2.Mensual\n3.Semanal");
         int opcion= input.nextInt();
         switch (opcion){
             case 1:
-                this.membresia="Mensual";
+                this.membresia=new Membresia("Anual");
                 break;
             case 2:
-                this.membresia="Semanal";
+                this.membresia=new Membresia("Mensual");
                 break;
             case 3:
-                this.membresia="Diaria";
+                this.membresia=new Membresia("Semanal");
                 break;
             default:
                 System.out.println("Operacion Cancelada");
+                break;
         }
     }
 
     @Override
     public String toString() {
-        return "Cliente{" +
+        return
                 "Nombre= " + nombre +
-                ", Edad= " + edad +
-                ", Cédula= " + cedula +
-                ", Dirección= " + direccion +
-                ", Membresia" + membresia +
-                '}';
+                "\nEdad= " + edad +
+                "\nCédula= " + cedula +
+                "\nDirección= " + direccion +
+                membresia.toString();
     }
 }
 
