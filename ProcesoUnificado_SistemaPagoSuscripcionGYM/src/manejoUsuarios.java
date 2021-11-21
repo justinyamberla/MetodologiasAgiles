@@ -34,19 +34,20 @@ public class manejoUsuarios {
         String contraseña=input.nextLine();
         System.out.println("Ingrese su nuevo nombre:");
         String nombre=input.nextLine();
-        System.out.println("Ingrese su nueva edad:");
+        System.out.println("Ingrese su edad:");
         int edad=input.nextInt();
-        System.out.println("Ingrese su nueva cedula:");
+        System.out.println("Ingrese su cedula:");
         String cedula=input.nextLine();
-        System.out.println("Ingrese su nueva direccion:");
+        System.out.println("Ingrese su direccion:");
         String direccion=input.nextLine();
-        System.out.println("Ingrese su nueva membresia:");
+        System.out.println("Ingrese su membresia:");
         String membresia=input.nextLine();
         Cliente temporal=new Cliente(nombre,edad,cedula,direccion,membresia);
         listaUsuarios.add(new Usuario(nombreUsuario,contraseña,temporal));
     }
 
     public void imprimir(int indice){
+
         System.out.println(listaUsuarios.get(indice).toString());
     }
 
