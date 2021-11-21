@@ -3,14 +3,14 @@ import java.util.*;
 public class Test {
     public static void main(String[] args) {
         ManejoUsuario sistema = new ManejoUsuario();
-        Scanner input=new Scanner(System.in);
-        int opcion=0;
-        int indiceUsuario=-1;
+        Scanner input = new Scanner(System.in);
+        int opcion = 0;
+        int indiceUsuario = -1;
 
-        boolean finMenuInicial=false;
+        boolean finMenuInicial = false;
         while(!finMenuInicial){
             System.out.println("¿Qué desea hacer? \n1.Ingresar con su usuario\n2.Registrar un nuevo usuario\n3.Salir");
-            opcion= input.nextInt();
+            opcion = input.nextInt();
             switch (opcion) {
                 case 1 -> {
                     indiceUsuario = sistema.ingresarCredenciales();
@@ -27,14 +27,14 @@ public class Test {
             }
         }
 
-        if (opcion==3) {
+        if (opcion == 3) {
             System.exit(0);
         }
 
-        boolean finMenuSecundario=false;
+        boolean finMenuSecundario = false;
         while(!finMenuSecundario){
             System.out.println("\n\n¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Salir");
-            opcion= input.nextInt();
+            opcion = input.nextInt();
             switch (opcion) {
                 case 1 -> sistema.imprimir(indiceUsuario);
                 case 2 -> {

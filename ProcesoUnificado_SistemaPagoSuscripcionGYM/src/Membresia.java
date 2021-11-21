@@ -32,7 +32,7 @@ public class Membresia {
 
     @Override
     public String toString() {
-        return "\nMembresia= " + tipo +
-                "\nPrecio= $" + precio;
+        return "\nMembresia = " + tipo +
+                "\nPrecio = $" + precio;
     }
 }

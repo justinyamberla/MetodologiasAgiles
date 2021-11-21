@@ -39,10 +39,10 @@ public class Cliente {
     @Override
     public String toString() {
         return
-                "Nombre= " + nombre +
-                "\nEdad= " + edad +
-                "\nCédula= " + cedula +
-                "\nDirección= " + direccion +
+                "Nombre = " + nombre +
+                "\nEdad = " + edad +
+                "\nCédula = " + cedula +
+                "\nDirección = " + direccion +
                 membresia.toString();
     }
 }

@@ -1,22 +1,20 @@
-import java.util.*;
-
 public class Usuario {
     private String nombreUsuario;
-    private String contraseña;
+    private String contrasena;
     private Cliente cliente;
 
     public Usuario(String nombreUsuario, String contraseña, Cliente cliente) {
         this.nombreUsuario = nombreUsuario;
-        this.contraseña = contraseña;
-        this.cliente=cliente;
+        this.contrasena = contraseña;
+        this.cliente = cliente;
     }
 
     public String getNombreUsuario() {
         return nombreUsuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
     public Cliente getCliente() {
@@ -25,8 +23,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return  "Nombre de Usuario= " + nombreUsuario +
-                "\nContraseña= " + contraseña + "\n" +
+        return  "Nombre de Usuario = " + nombreUsuario +
+                "\nContraseña = " + contrasena + "\n" +
                 cliente.toString();
     }
 }

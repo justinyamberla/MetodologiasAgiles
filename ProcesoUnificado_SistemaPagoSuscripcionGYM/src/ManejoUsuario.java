@@ -22,7 +22,7 @@ public class ManejoUsuario {
     public int login(String usuario, String contrasena) {
         for (Usuario i : listaUsuarios) {
             boolean validarNombreUsuario = i.getNombreUsuario().equals(usuario);
-            boolean validarContrasena = i.getContraseña().equals(contrasena);
+            boolean validarContrasena = i.getContrasena().equals(contrasena);
             if (validarNombreUsuario && validarContrasena) {
                 System.out.println("Ingreso correcto \nBienvenido "+i.getNombreUsuario()+'!');
                 return listaUsuarios.indexOf(i);
