@@ -1,9 +1,8 @@
 import java.util.*;
 
-
 public class Test {
     public static void main(String[] args) {
-        manejoUsuarios sistema = new manejoUsuarios();
+        ManejoUsuario sistema = new ManejoUsuario();
         Scanner input=new Scanner(System.in);
         int opcion=0;
         int indiceUsuario=-1;
@@ -59,13 +58,7 @@ public class Test {
         }
         System.exit(0);
 
-        }
-
-
     }
 
 
-
-
-
-
+}

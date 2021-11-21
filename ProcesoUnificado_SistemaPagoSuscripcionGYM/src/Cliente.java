@@ -18,16 +18,16 @@ public class Cliente {
     public void comprarMembresia(){
         Scanner input = new Scanner(System.in);
         System.out.println("Ingrese su tarjeta");
-        String tarjeta=input.nextLine();
+        String tarjeta = input.nextLine();
         System.out.println("Ingrese su CVV");
-        String CVV=input.nextLine();
+        String CVV = input.nextLine();
         establecerNuevoTipoMembresia();
     }
 
     public void establecerNuevoTipoMembresia(){
         Scanner input = new Scanner(System.in);
         System.out.println("Escoja su nueva membresia (1, 2, o 3):\n1.Anual\n2.Mensual\n3.Semanal");
-        int opcion= input.nextInt();
+        int opcion = input.nextInt();
         switch (opcion) {
             case 1 -> this.membresia = new Membresia("Anual");
             case 2 -> this.membresia = new Membresia("Mensual");

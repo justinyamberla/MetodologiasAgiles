@@ -1,11 +1,11 @@
 import java.util.*;
 
 
-public class manejoUsuarios {
+public class ManejoUsuario {
     ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
 
 
-    public manejoUsuarios() {
+    public ManejoUsuario() {
         Cliente admin = new Cliente("admin", 0, "001", "En todas partes", "infinita");
         listaUsuarios.add(new Usuario("admin", "admin", admin));
     }
