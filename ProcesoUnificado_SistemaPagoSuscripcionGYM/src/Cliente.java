@@ -22,21 +22,18 @@ public class Cliente {
         String tarjeta=input.nextLine();
         System.out.println("Ingrese su CVV");
         String CVV=input.nextLine();
-        System.out.println("Escoja su nueva membresia:\n1.Anual\n2.Mensual\n3.Semanal");
+        establecerNuevoTipoMembresia();
+    }
+
+    public void establecerNuevoTipoMembresia(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Escoja su nueva membresia (1, 2, o 3):\n1.Anual\n2.Mensual\n3.Semanal");
         int opcion= input.nextInt();
-        switch (opcion){
-            case 1:
-                this.membresia=new Membresia("Anual");
-                break;
-            case 2:
-                this.membresia=new Membresia("Mensual");
-                break;
-            case 3:
-                this.membresia=new Membresia("Semanal");
-                break;
-            default:
-                System.out.println("Operacion Cancelada");
-                break;
+        switch (opcion) {
+            case 1 -> this.membresia = new Membresia("Anual");
+            case 2 -> this.membresia = new Membresia("Mensual");
+            case 3 -> this.membresia = new Membresia("Semanal");
+            default -> System.out.println("Operacion Cancelada");
         }
     }
 
