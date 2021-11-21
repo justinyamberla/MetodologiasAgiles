@@ -10,13 +10,12 @@ public class ManejoUsuario {
         listaUsuarios.add(new Usuario("admin", "admin", admin));
     }
 
-    public int ingresar(){
+    public int ingresarCredenciales(){
         Scanner input = new Scanner(System.in);
         System.out.println("Ingrese su usuario:");
         String usuario = input.nextLine();
         System.out.println("Ingrese su contrasena:");
         String contrasena = input.nextLine();
-
         return login(usuario,contrasena);
     }
 
@@ -24,13 +23,11 @@ public class ManejoUsuario {
         for (Usuario i : listaUsuarios) {
             boolean validarNombreUsuario = i.getNombreUsuario().equals(usuario);
             boolean validarContrasena = i.getContraseña().equals(contrasena);
-
             if (validarNombreUsuario && validarContrasena) {
                 System.out.println("Ingreso correcto \nBienvenido "+i.getNombreUsuario()+'!');
                 return listaUsuarios.indexOf(i);
             }
         }
-
         System.out.println("Credenciales incorrectas");
         return -1;
     }

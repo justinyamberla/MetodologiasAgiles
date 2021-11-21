@@ -13,7 +13,7 @@ public class Test {
             opcion= input.nextInt();
             switch (opcion) {
                 case 1 -> {
-                    indiceUsuario = sistema.ingresar();
+                    indiceUsuario = sistema.ingresarCredenciales();
                     if (indiceUsuario != -1) {
                         finMenuInicial = true;
                     }
