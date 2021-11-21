@@ -44,8 +44,8 @@ public class Test {
                     sistema.imprimir(indiceUsuario);
                     break;
                 case 2:
-                    Cliente localizarUsuario = sistema.listaUsuarios.get(indiceUsuario).getCliente();
-                    localizarUsuario.comprarMembresia();
+                    Cliente localizacionUsuario = sistema.listaUsuarios.get(indiceUsuario).getCliente();
+                    localizacionUsuario.comprarMembresia();
                     break;
                 case 3:
                     System.out.println("Adios");
