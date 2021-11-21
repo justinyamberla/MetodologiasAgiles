@@ -11,22 +11,19 @@ public class Test {
         while(!finMenuInicial){
             System.out.println("¿Qué desea hacer? \n1.Ingresar con su usuario\n2.Registrar un nuevo usuario\n3.Salir");
             opcion= input.nextInt();
-            switch(opcion){
-                case 1:
-                    indiceUsuario= sistema.ingresar();
-                    if(indiceUsuario!=-1){
-                        finMenuInicial=true;
+            switch (opcion) {
+                case 1 -> {
+                    indiceUsuario = sistema.ingresar();
+                    if (indiceUsuario != -1) {
+                        finMenuInicial = true;
                     }
-                    break;
-                case 2:
-                    sistema.iniciarRegistro();
-                    break;
-                case 3:
+                }
+                case 2 -> sistema.iniciarRegistro();
+                case 3 -> {
                     System.out.println("Adios");
-                    finMenuInicial=true;
-                    break;
-                default:
-                    System.out.println("No entiendo esa orden");
+                    finMenuInicial = true;
+                }
+                default -> System.out.println("No entiendo esa orden");
             }
         }
 
@@ -38,21 +35,17 @@ public class Test {
         while(!finMenuSecundario){
             System.out.println("\n\n¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Salir");
             opcion= input.nextInt();
-            switch(opcion){
-                case 1:
-                    sistema.imprimir(indiceUsuario);
-                    break;
-                case 2:
+            switch (opcion) {
+                case 1 -> sistema.imprimir(indiceUsuario);
+                case 2 -> {
                     Cliente localizacionUsuario = sistema.listaUsuarios.get(indiceUsuario).getCliente();
                     localizacionUsuario.comprarMembresia();
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     System.out.println("Adios");
-                    finMenuSecundario=true;
-                    break;
-                default:
-                    System.out.println("No entiendo esa orden");
-                    break;
+                    finMenuSecundario = true;
+                }
+                default -> System.out.println("No entiendo esa orden");
             }
 
         }
