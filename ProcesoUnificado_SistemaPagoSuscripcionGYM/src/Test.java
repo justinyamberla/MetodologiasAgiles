@@ -3,49 +3,52 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        manejoUsuarios controller = new manejoUsuarios();
+        manejoUsuarios sistema = new manejoUsuarios();
         Scanner input=new Scanner(System.in);
-        boolean aceptado=false;
         int opcion=0;
         int indiceUsuario=-1;
-        while(!aceptado){ //varible temporal cambiar
+
+        boolean finMenuInicial=false;
+        while(!finMenuInicial){
             System.out.println("¿Qué desea hacer? \n1.Ingresar con su usuario\n2.Registrar un nuevo usuario\n3.Salir");
             opcion= input.nextInt();
             switch(opcion){
                 case 1:
-                    indiceUsuario= controller.login();
+                    indiceUsuario= sistema.ingresar();
                     if(indiceUsuario!=-1){
-                        aceptado=true;
+                        finMenuInicial=true;
                     }
                     break;
                 case 2:
-                    controller.registar();
+                    sistema.iniciarRegistro();
                     break;
                 case 3:
                     System.out.println("Adios");
-                    aceptado=true;
+                    finMenuInicial=true;
                     break;
                 default:
                     System.out.println("No entiendo esa orden");
             }
         }
+
         if (opcion==3) {
             System.exit(0);
         }
-        aceptado=false;
-        while(!aceptado){ //variable temporal cambiar
+
+        boolean finMenuSecundario=false;
+        while(!finMenuSecundario){
             System.out.println("\n\n¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Salir");
             opcion= input.nextInt();
             switch(opcion){
                 case 1:
-                    controller.imprimir(indiceUsuario);
+                    sistema.imprimir(indiceUsuario);
                     break;
                 case 2:
-                    controller.listaUsuarios.get(indiceUsuario).getCliente().comprarMembresia();
+                    sistema.listaUsuarios.get(indiceUsuario).getCliente().comprarMembresia();
                     break;
                 case 3:
                     System.out.println("Adios");
-                    aceptado=true;
+                    finMenuSecundario=true;
                     break;
                 default:
                     System.out.println("No entiendo esa orden");
