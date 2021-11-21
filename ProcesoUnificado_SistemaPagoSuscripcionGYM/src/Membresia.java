@@ -8,7 +8,7 @@ public class Membresia {
     public Membresia(String tipo) {
         establecerTipoMembresia(tipo);
     }
-    
+
     public void establecerTipoMembresia(String tipo){
         switch (tipo) {
             case "Anual" -> {
