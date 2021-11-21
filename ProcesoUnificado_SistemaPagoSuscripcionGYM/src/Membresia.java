@@ -11,17 +11,14 @@ public class Membresia {
     public Membresia(String tipo) {
         if (tipo.equals("Anual")){
             this.tipo="Anual";
-            //fechInicio="00/00/00";
             precio=200;
 
         } else if(tipo.equals("Mensual")){
             this.tipo="Mensual";
-            //fechInicio="00/00/00";
             precio=20;
 
         } else if (tipo.equals("Semanal")){
             this.tipo="Semanal";
-            //fechInicio="00/00/00";
             precio=6;
         }  else {
             this.tipo="No valido";
