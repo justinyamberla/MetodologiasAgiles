@@ -7,8 +7,6 @@ public class Membresia {
     private String tipo;
     private double precio;
 
-
-
     public Membresia(String nuevaMembresia) {
 
         List<String> membresias = Arrays.asList("Anual", "Mensual", "Semanal");
@@ -22,7 +20,6 @@ public class Membresia {
             }
         }
     }
-
 
     @Override
     public String toString() {

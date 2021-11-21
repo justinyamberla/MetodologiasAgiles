@@ -66,7 +66,7 @@ public class manejoUsuarios {
     }
 
 
-    public void imprimir(int indice) {
+    public void imprimir(int indice){
         System.out.println(listaUsuarios.get(indice).toString());
     }
 
