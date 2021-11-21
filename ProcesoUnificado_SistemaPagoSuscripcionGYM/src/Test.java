@@ -8,7 +8,7 @@ public class Test {
         boolean aceptado=false;
         int opcion=0;
         int indiceUsuario=-1;
-        while(!aceptado){
+        while(!aceptado){ //varible temporal cambiar
             System.out.println("¿Qué desea hacer? \n1.Ingresar con su usuario\n2.Registrar un nuevo usuario\n3.Salir");
             opcion= input.nextInt();
             switch(opcion){
@@ -33,7 +33,7 @@ public class Test {
             System.exit(0);
         }
         aceptado=false;
-        while(!aceptado){
+        while(!aceptado){ //variable temporal cambiar
             System.out.println("\n\n¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Salir");
             opcion= input.nextInt();
             switch(opcion){
@@ -56,10 +56,6 @@ public class Test {
         System.exit(0);
 
         }
-
-
-
-
 
 
     }
