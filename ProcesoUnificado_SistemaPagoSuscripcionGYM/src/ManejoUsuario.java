@@ -64,7 +64,8 @@ public class ManejoUsuario {
 
 
     public void imprimir(int indice) {
-        System.out.println(listaUsuarios.get(indice).toString());
+        String informacionUsuario = listaUsuarios.get(indice).toString();
+        System.out.println(informacionUsuario);
     }
 
 }
