@@ -10,13 +10,13 @@ public class ManejoUsuario {
         listaUsuarios.add(new Usuario("admin", "admin", admin));
     }
 
-    public int ingresarCredenciales(){
+    public int ingresarCredenciales() {
         Scanner input = new Scanner(System.in);
         System.out.println("Ingrese su usuario:");
         String usuario = input.nextLine();
         System.out.println("Ingrese su contrasena:");
         String contrasena = input.nextLine();
-        return login(usuario,contrasena);
+        return login(usuario, contrasena);
     }
 
     public int login(String usuario, String contrasena) {
@@ -24,7 +24,7 @@ public class ManejoUsuario {
             boolean validarNombreUsuario = i.getNombreUsuario().equals(usuario);
             boolean validarContrasena = i.getContrasena().equals(contrasena);
             if (validarNombreUsuario && validarContrasena) {
-                System.out.println("\n\nIngreso correcto \nBienvenido "+i.getNombreUsuario()+'!');
+                System.out.println("\n\nIngreso correcto \nBienvenido " + i.getNombreUsuario() + '!');
                 return listaUsuarios.indexOf(i);
             }
         }
@@ -32,7 +32,7 @@ public class ManejoUsuario {
         return -1;
     }
 
-    public void iniciarRegistro(){
+    public void iniciarRegistro() {
         Scanner input = new Scanner(System.in);
 
         System.out.println("Ingrese su nuevo usuario:");
@@ -51,7 +51,7 @@ public class ManejoUsuario {
         System.out.println("Ingrese su nueva membresia:");
         String membresia = input.nextLine();
 
-        registrar(nombre,edad,cedula,direccion,membresia,nombreUsuario,contrasena);
+        registrar(nombre, edad, cedula, direccion, membresia, nombreUsuario, contrasena);
     }
 
 
@@ -63,7 +63,7 @@ public class ManejoUsuario {
     }
 
 
-    public void imprimir(int indice){
+    public void imprimir(int indice) {
         System.out.println(listaUsuarios.get(indice).toString());
     }
 
