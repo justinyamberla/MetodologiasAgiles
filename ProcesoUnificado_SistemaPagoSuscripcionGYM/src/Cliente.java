@@ -6,6 +6,7 @@ public class Cliente {
     private String cedula;
     private String direccion;
     private Membresia membresia;
+    private Tarjeta tarjeta;
 
     public Cliente(String nombre, int edad, String cedula, String direccion, String membresia) {
         this.nombre = nombre;
@@ -16,11 +17,14 @@ public class Cliente {
     }
 
     public void comprarMembresia(){
+
         Scanner input = new Scanner(System.in);
         System.out.println("Ingrese su tarjeta");
-        String tarjeta = input.nextLine();
+        int numTarjetaAux = input.nextInt();
         System.out.println("Ingrese su CVV");
-        String CVV = input.nextLine();
+        int cvvAux = input.nextInt();
+
+        tarjeta = new Tarjeta(numTarjetaAux,cvvAux);
         establecerNuevoTipoMembresia();
     }
 

@@ -33,7 +33,7 @@ public class Test {
 
         boolean finMenuSecundario = false;
         while(!finMenuSecundario){
-            System.out.println("\n\n¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Salir");
+            System.out.println("\n¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Salir");
             opcion = input.nextInt();
             switch (opcion) {
                 case 1 -> sistema.imprimir(indiceUsuario);
