@@ -8,6 +8,26 @@ public class Cliente {
     private Membresia membresia;
     private Tarjeta tarjeta;
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setMembresia(Membresia membresia) {
+        this.membresia = membresia;
+    }
+
     public Cliente(String nombre, int edad, String cedula, String direccion, String membresia) {
         this.nombre = nombre;
         this.edad = edad;
@@ -17,7 +37,6 @@ public class Cliente {
     }
 
     public void comprarMembresia(){
-
         Scanner input = new Scanner(System.in);
         System.out.println("Ingrese su tarjeta");
         int numTarjetaAux = input.nextInt();

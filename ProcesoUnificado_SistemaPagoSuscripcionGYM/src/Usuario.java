@@ -21,6 +21,18 @@ public class Usuario {
         return cliente;
     }
 
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     @Override
     public String toString() {
         return  "Nombre de Usuario = " + nombreUsuario +

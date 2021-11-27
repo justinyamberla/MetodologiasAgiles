@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Membresia {
     private String tipo;
@@ -9,7 +8,7 @@ public class Membresia {
         establecerTipoMembresia(tipo);
     }
 
-    public void establecerTipoMembresia(String tipo){
+    public void establecerTipoMembresia(String tipo) {
         switch (tipo) {
             case "Anual" -> {
                 this.tipo = "Anual";
@@ -29,6 +28,8 @@ public class Membresia {
             }
         }
     }
+
+
 
     @Override
     public String toString() {

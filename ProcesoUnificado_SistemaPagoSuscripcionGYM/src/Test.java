@@ -33,7 +33,7 @@ public class Test {
 
         boolean finMenuSecundario = false;
         while(!finMenuSecundario){
-            System.out.println("\n¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Salir");
+            System.out.println("\n¿Qué desea hacer? \n1.Mostrar su datos\n2.Comprar Membresia\n3.Actualizar Información\n4.Salir");
             opcion = input.nextInt();
             switch (opcion) {
                 case 1 -> sistema.imprimir(indiceUsuario);
@@ -41,7 +41,11 @@ public class Test {
                     Cliente localizacionUsuario = sistema.listaUsuarios.get(indiceUsuario).getCliente();
                     localizacionUsuario.comprarMembresia();
                 }
-                case 3 -> {
+                case 3->{
+                    Usuario aux = sistema.listaUsuarios.get(indiceUsuario);
+                    sistema.actualizarInformacion(aux);
+                }
+                case 4 -> {
                     System.out.println("Adios");
                     finMenuSecundario = true;
                 }
