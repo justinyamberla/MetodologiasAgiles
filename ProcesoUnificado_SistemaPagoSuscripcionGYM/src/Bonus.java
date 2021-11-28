@@ -1,4 +1,3 @@
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,8 +7,9 @@ public class Bonus {
     private double membresiaDesc;
     private Suplementos suplemento = new Suplementos();
     private Accesorio accesorio = new Accesorio();
-    private Ropa ropa = new Ropa();
+    private Ropa prenda = new Ropa();
 
+    ArrayList<Suplementos> listSuplementos = new ArrayList<Suplementos>();
     ArrayList<Accesorio> listAccesorios = new ArrayList<Accesorio>();
     ArrayList<Ropa> listRopa = new ArrayList<Ropa>();
 
@@ -50,16 +50,17 @@ public class Bonus {
     }
 
     public Ropa getRopa() {
-        return ropa;
+        return prenda;
     }
 
     public void setRopa(Ropa ropa) {
-        this.ropa = ropa;
+        this.prenda = ropa;
     }
 
     public void rebajarPrecioMembresia(Usuario user) {
+        String tipoMembresia = user.getCliente().getMembresia().getTipo();
 
-        switch (user.getCliente().getMembresia().getTipo()) {
+        switch (tipoMembresia) {
             case "Anual" -> {
                 this.membresiaDesc = 185;
             }
@@ -74,7 +75,8 @@ public class Bonus {
     }
 
     public void premiarDiaExtra(Usuario user) {
-        switch (user.getCliente().getMembresia().getTipo()) {
+        String tipoMembresia = user.getCliente().getMembresia().getTipo();
+        switch (tipoMembresia) {
             case "Anual" -> {
                 this.diaExtra = 5;
             }
@@ -93,48 +95,22 @@ public class Bonus {
         Scanner in = new Scanner(System.in);
         System.out.print("\nDesea adquirir:\n\t1.Proteina $100\n\t2.PreEntreno $50\n\t3.Creatina $20");
         int op = in.nextInt();
-        switch (op) {
-            case 1 -> {
-                suplemento.setTipo("Proteina");
 
-                if (membresia.equals("Anual")) {
-                    System.out.print("\n*Por tu membresia tienes un 20% de descuento*\n");
-                    suplemento.setPrecio(80);
-                } else if (membresia.equals("Mensual")) {
-                    System.out.print("\n*Por tu membresia tienes un 10% de descuento*\n");
-                    suplemento.setPrecio(90);
-                } else {
-                    System.out.print("\n*Tu membresia no tiene descuentos*\n");
-                    suplemento.setPrecio(100);
-                }
+        suplemento.setTipo(listSuplementos.get(op-1).getTipo());
+        double auxPrecio = listSuplementos.get(op-1).getPrecio();
+
+        switch (membresia) {
+            case "Anual" -> {
+                System.out.print("\n*Por tu membresia tienes un 20% de descuento*\n");
+                suplemento.setPrecio(aplicarDescuento(membresia,auxPrecio));
             }
-            case 2 -> {
-                suplemento.setTipo("PreEntreno");
-
-                if (membresia.equals("Anual")) {
-                    System.out.print("\n*Por tu membresia tienes un 20% de descuento*\n");
-                    suplemento.setPrecio(40);
-                } else if (membresia.equals("Mensual")) {
-                    System.out.print("\n*Por tu membresia tienes un 10% de descuento*\n");
-                    suplemento.setPrecio(45);
-                } else {
-                    System.out.print("\n*Tu membresia no tiene descuentos*\n");
-                    suplemento.setPrecio(50);
-                }
+            case "Mensual" -> {
+                System.out.print("\n*Por tu membresia tienes un 10% de descuento*\n");
+                suplemento.setPrecio(aplicarDescuento(membresia,auxPrecio));
             }
-            case 3 -> {
-                suplemento.setTipo("Creatina");
-
-                if (membresia.equals("Anual")) {
-                    System.out.print("\n*Por tu membresia tienes un 20% de descuento*\n");
-                    suplemento.setPrecio(16);
-                } else if (membresia.equals("Mensual")) {
-                    System.out.print("\n*Por tu membresia tienes un 10% de descuento*\n");
-                    suplemento.setPrecio(18);
-                } else {
-                    System.out.print("\n*Tu membresia no tiene descuentos*\n");
-                    suplemento.setPrecio(20);
-                }
+            default -> {
+                System.out.print("\n*Tu membresia no tiene descuentos*\n");
+               suplemento.setPrecio(aplicarDescuento(membresia,auxPrecio));
             }
         }
         user.getBono().setSuplemento(suplemento);
@@ -144,10 +120,10 @@ public class Bonus {
         String membresia = user.getCliente().getMembresia().getTipo();
         Scanner in = new Scanner(System.in);
         System.out.print("\nTe recomendamos:\n\t1.Cinturon $100\n\t2.Guantes $50\n\t3.Rodirellas $20");
-        int op = in.nextInt() - 1;
+        int op = in.nextInt();
 
-        accesorio.setTipo(listAccesorios.get(op).getTipo());
-        double auxPrecio = listAccesorios.get(op).getPrecio();
+        accesorio.setTipo(listAccesorios.get(op-1).getTipo());
+        double auxPrecio = listAccesorios.get(op-1).getPrecio();
 
         switch (membresia) {
             case "Anual" -> {
@@ -170,27 +146,36 @@ public class Bonus {
         String membresia = user.getCliente().getMembresia().getTipo();
         Scanner in = new Scanner(System.in);
         System.out.print("\nDeseas adquirir:\n\t1.Camiseta $20\n\t2.Pantalón $15\n\t3.Chompa $30");
-        int op = in.nextInt() - 1;
+        int tpRopa = in.nextInt();
 
-        ropa.setTipo(listRopa.get(op).getTipo());
-        double auxPrecio = listRopa.get(op).getPrecio();
+        prenda.setTipo(listRopa.get(tpRopa-1).getTipo());
+        double auxPrecio = listRopa.get(tpRopa-1).getPrecio();
 
         switch (membresia) {
             case "Anual" -> {
                 System.out.print("\n*Por tu membresia tienes un 20% de descuento*\n");
-                ropa.setPrecio(aplicarDescuento(membresia,auxPrecio));
+                prenda.setPrecio(aplicarDescuento(membresia,auxPrecio));
             }
             case "Mensual" -> {
                 System.out.print("\n*Por tu membresia tienes un 10% de descuento*\n");
-                ropa.setPrecio(aplicarDescuento(membresia,auxPrecio));
+                prenda.setPrecio(aplicarDescuento(membresia,auxPrecio));
             }
             default -> {
                 System.out.print("\n*Tu membresia no tiene descuentos*\n");
-                ropa.setPrecio(aplicarDescuento(membresia,auxPrecio));
+                prenda.setPrecio(aplicarDescuento(membresia,auxPrecio));
             }
         }
-        user.getBono().setRopa(ropa);
 
+        System.out.print("\nSeleccione la talla:\n\t1.S - Small\n\t2.M - Medium\n\t3.L - Large");
+        int talla = in.nextInt();
+
+        switch (talla){
+            case 1 -> prenda.setTalla("S");
+            case 2 -> prenda.setTalla("M");
+            case 3 -> prenda.setTalla("L");
+        }
+
+        user.getBono().setRopa(prenda);
     }
 
     public double aplicarDescuento(String tipoMembresia, double precioNormal){
@@ -208,6 +193,9 @@ public class Bonus {
     }
 
     public void inicializarListas() {
+        listSuplementos.add(new Suplementos("Proteina",100));
+        listSuplementos.add(new Suplementos("PreEntreno",50));
+        listSuplementos.add(new Suplementos("Creatina",20));
         listAccesorios.add(new Accesorio("Cinturón", 50));
         listAccesorios.add(new Accesorio("Guantes", 20));
         listAccesorios.add(new Accesorio("Rodirrelas", 15));
