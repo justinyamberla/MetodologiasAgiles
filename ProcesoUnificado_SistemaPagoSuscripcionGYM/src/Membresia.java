@@ -8,6 +8,14 @@ public class Membresia {
         establecerTipoMembresia(tipo);
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
     public void establecerTipoMembresia(String tipo) {
         switch (tipo) {
             case "Anual" -> {

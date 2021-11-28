@@ -61,7 +61,7 @@ public class ManejoUsuario {
         listaUsuarios.add(new Usuario(usuario, contrasena, temporal));
     }
 
-    public void finalizarActualizacionInformacio(Usuario usuario){
+    public void finalizarActualizacionInformacion(Usuario usuario){
         Scanner input = new Scanner(System.in);
         System.out.println("Desea actualizar algo más?\n\t1.Si\n\t2.No");
         int opcion = input.nextInt();
@@ -72,7 +72,7 @@ public class ManejoUsuario {
 
     public void actualizarInformacion(Usuario usuario){
         Scanner input = new Scanner(System.in);
-        System.out.println("Qué desea actulizar?\n1.Usuario\n2.Contraseña\n3.Nombre" +
+        System.out.println("Qué desea actualizar?\n1.Usuario\n2.Contraseña\n3.Nombre" +
                 "\n4.Edad\n5.Cédula\n6.Dirección\n7.Membresía\n");
         int opcion = input.nextInt();
         input.nextLine();
@@ -82,44 +82,44 @@ public class ManejoUsuario {
                 System.out.print("Ingrese el nuevo usuario: ");
                 String aux = input.nextLine();
                 usuario.setNombreUsuario(aux);
-                finalizarActualizacionInformacio(usuario);
+                finalizarActualizacionInformacion(usuario);
             }
             case 2 ->{
                 System.out.print("Ingrese la nueva contraseña: ");
                 String aux = input.nextLine();
                 usuario.setContrasena(aux);
-                finalizarActualizacionInformacio(usuario);
+                finalizarActualizacionInformacion(usuario);
             }
             case 3 ->{
                 System.out.print("Ingrese el nuevo Nombre: ");
                 String aux = input.nextLine();
                 usuario.getCliente().setNombre(aux);
-                finalizarActualizacionInformacio(usuario);
+                finalizarActualizacionInformacion(usuario);
             }
             case 4 ->{
                 System.out.print("Ingrese la Edad: ");
                 int aux = input.nextInt();
                 input.nextLine();
                 usuario.getCliente().setEdad(aux);
-                finalizarActualizacionInformacio(usuario);
+                finalizarActualizacionInformacion(usuario);
             }
             case 5 ->{
                 System.out.print("Ingrese el nuevo número de cédula: ");
                 String aux = input.nextLine();
                 usuario.getCliente().setCedula(aux);
-                finalizarActualizacionInformacio(usuario);
+                finalizarActualizacionInformacion(usuario);
             }
             case 6 ->{
                 System.out.print("Ingrese la nueva dirección: ");
                 String aux = input.nextLine();
                 usuario.getCliente().setDireccion(aux);
-                finalizarActualizacionInformacio(usuario);
+                finalizarActualizacionInformacion(usuario);
             }
             case 7 ->{
                 System.out.print("Ingrese la Membresía: ");
                 String aux = input.nextLine();
                 usuario.getCliente().setMembresia(new Membresia(aux));
-                finalizarActualizacionInformacio(usuario);
+                finalizarActualizacionInformacion(usuario);
             }
             default -> System.out.println("Opción no válida");
         }

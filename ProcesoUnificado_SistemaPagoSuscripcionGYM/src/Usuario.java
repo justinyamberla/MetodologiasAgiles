@@ -2,6 +2,7 @@ public class Usuario {
     private String nombreUsuario;
     private String contrasena;
     private Cliente cliente;
+    private Bonus bono = new Bonus();
 
     public Usuario(String nombreUsuario, String contraseña, Cliente cliente) {
         this.nombreUsuario = nombreUsuario;
@@ -19,6 +20,12 @@ public class Usuario {
 
     public Cliente getCliente() {
         return cliente;
+    }
+
+    public Bonus getBono() {return bono;}
+
+    public void setBono(Bonus bono) {
+        this.bono = bono;
     }
 
     public void setNombreUsuario(String nombreUsuario) {

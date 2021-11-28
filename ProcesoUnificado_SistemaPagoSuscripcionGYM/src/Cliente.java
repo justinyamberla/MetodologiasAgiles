@@ -8,6 +8,34 @@ public class Cliente {
     private Membresia membresia;
     private Tarjeta tarjeta;
 
+    public Cliente(String nombre, int edad, String cedula, String direccion, String membresia) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.cedula = cedula;
+        this.direccion = direccion;
+        this.membresia = new Membresia(membresia);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public Membresia getMembresia() {
+        return membresia;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -28,26 +56,18 @@ public class Cliente {
         this.membresia = membresia;
     }
 
-    public Cliente(String nombre, int edad, String cedula, String direccion, String membresia) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.cedula = cedula;
-        this.direccion = direccion;
-        this.membresia = new Membresia(membresia);
-    }
-
-    public void comprarMembresia(){
+    public void comprarMembresia() {
         Scanner input = new Scanner(System.in);
         System.out.println("Ingrese su tarjeta");
         int numTarjetaAux = input.nextInt();
         System.out.println("Ingrese su CVV");
         int cvvAux = input.nextInt();
 
-        tarjeta = new Tarjeta(numTarjetaAux,cvvAux);
+        tarjeta = new Tarjeta(numTarjetaAux, cvvAux);
         establecerNuevoTipoMembresia();
     }
 
-    public void establecerNuevoTipoMembresia(){
+    public void establecerNuevoTipoMembresia() {
         Scanner input = new Scanner(System.in);
         System.out.println("Escoja su nueva membresia (1, 2, o 3):\n1.Anual\n2.Mensual\n3.Semanal");
         int opcion = input.nextInt();
@@ -63,10 +83,10 @@ public class Cliente {
     public String toString() {
         return
                 "Nombre = " + nombre +
-                "\nEdad = " + edad +
-                "\nCédula = " + cedula +
-                "\nDirección = " + direccion +
-                membresia.toString();
+                        "\nEdad = " + edad +
+                        "\nCédula = " + cedula +
+                        "\nDirección = " + direccion +
+                        membresia.toString();
     }
 }
 
