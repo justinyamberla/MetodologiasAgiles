@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Bonus {
     private Usuario user;
@@ -15,6 +14,14 @@ public class Bonus {
 
     public Bonus() {
         inicializarListas();
+    }
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public void setUser(Usuario user) {
+        this.user = user;
     }
 
     public int getDiaExtra() {
@@ -62,19 +69,19 @@ public class Bonus {
 
         switch (tipoMembresia) {
             case "Anual" -> {
-                this.membresiaDesc = 185;
+                this.membresiaDesc = 155;
             }
             case "Mensual" -> {
                 this.membresiaDesc = 18;
             }
-            case "Semanal" -> {
+            case "Semanal" ->{
                 System.out.println("No aplica para este tipo de membresía");
             }
         }
         user.getBono().setMembresiaDesc(membresiaDesc);
     }
 
-    public void premiarDiaExtra(Usuario user) {
+    public void premiarFidelidad(Usuario user) {
         String tipoMembresia = user.getCliente().getMembresia().getTipo();
         switch (tipoMembresia) {
             case "Anual" -> {
@@ -90,14 +97,17 @@ public class Bonus {
         user.getBono().setDiaExtra(diaExtra);
     }
 
-    public void ofrecerSuplementos(Usuario user) {
+    public void informacionSuplementos(Usuario user){
         String membresia = user.getCliente().getMembresia().getTipo();
         Scanner in = new Scanner(System.in);
         System.out.print("\nDesea adquirir:\n\t1.Proteina $100\n\t2.PreEntreno $50\n\t3.Creatina $20");
         int op = in.nextInt();
+        ofrecerSuplementos(user,op,membresia);
+    }
 
-        suplemento.setTipo(listSuplementos.get(op-1).getTipo());
-        double auxPrecio = listSuplementos.get(op-1).getPrecio();
+    public void ofrecerSuplementos(Usuario user, int index, String membresia) {
+        suplemento.setTipo(listSuplementos.get(index-1).getTipo());
+        double auxPrecio = listSuplementos.get(index-1).getPrecio();
 
         switch (membresia) {
             case "Anual" -> {
@@ -110,20 +120,23 @@ public class Bonus {
             }
             default -> {
                 System.out.print("\n*Tu membresia no tiene descuentos*\n");
-               suplemento.setPrecio(aplicarDescuento(membresia,auxPrecio));
+                suplemento.setPrecio(aplicarDescuento(membresia,auxPrecio));
             }
         }
         user.getBono().setSuplemento(suplemento);
     }
 
-    public void recomendarAccesorios(Usuario user) {
+    public void informacionAccesorios(Usuario user){
         String membresia = user.getCliente().getMembresia().getTipo();
         Scanner in = new Scanner(System.in);
         System.out.print("\nTe recomendamos:\n\t1.Cinturon $100\n\t2.Guantes $50\n\t3.Rodirellas $20");
         int op = in.nextInt();
+        recomendarAccesorios(user,op,membresia);
+    }
 
-        accesorio.setTipo(listAccesorios.get(op-1).getTipo());
-        double auxPrecio = listAccesorios.get(op-1).getPrecio();
+    public void recomendarAccesorios(Usuario user, int index, String membresia) {
+        accesorio.setTipo(listAccesorios.get(index-1).getTipo());
+        double auxPrecio = listAccesorios.get(index-1).getPrecio();
 
         switch (membresia) {
             case "Anual" -> {
@@ -139,14 +152,17 @@ public class Bonus {
                 accesorio.setPrecio(aplicarDescuento(membresia,auxPrecio));
             }
         }
-        user.getBono().setAccesorio(accesorio);
+        //user.getBono().setAccesorio(accesorio);
     }
-
-    public void ofrecerRopa(Usuario user){
+    public void informacionRopa(Usuario user){
         String membresia = user.getCliente().getMembresia().getTipo();
         Scanner in = new Scanner(System.in);
         System.out.print("\nDeseas adquirir:\n\t1.Camiseta $20\n\t2.Pantalón $15\n\t3.Chompa $30");
         int tpRopa = in.nextInt();
+
+        ofrecerRopa(user,tpRopa,membresia);
+    }
+    public void ofrecerRopa(Usuario user,int tpRopa,String membresia){
 
         prenda.setTipo(listRopa.get(tpRopa-1).getTipo());
         double auxPrecio = listRopa.get(tpRopa-1).getPrecio();
@@ -166,6 +182,7 @@ public class Bonus {
             }
         }
 
+        Scanner in = new Scanner(System.in);
         System.out.print("\nSeleccione la talla:\n\t1.S - Small\n\t2.M - Medium\n\t3.L - Large");
         int talla = in.nextInt();
 
