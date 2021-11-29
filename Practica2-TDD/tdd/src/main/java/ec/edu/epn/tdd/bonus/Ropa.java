@@ -1,3 +1,5 @@
+package ec.edu.epn.tdd.bonus;
+
 public class Ropa {
     private String tipo;
     private String talla;

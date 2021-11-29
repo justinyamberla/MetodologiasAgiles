@@ -1,3 +1,5 @@
+package ec.edu.epn.tdd.bonus;
+
 public class Accesorio {
     private String tipo;
     private double precio;

@@ -1,4 +1,7 @@
-import java.util.*;
+package ec.edu.epn.tdd.bonus;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 
 public class ManejoUsuario {
@@ -6,7 +9,7 @@ public class ManejoUsuario {
 
 
     public ManejoUsuario() {
-        Cliente admin = new Cliente("admin", 0, "001", "En todas partes", "infinita");
+        Cliente admin = new Cliente("admin", 0, "001", "En todas partes", "Anual");
         listaUsuarios.add(new Usuario("admin", "admin", admin));
     }
 

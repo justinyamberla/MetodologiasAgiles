@@ -1,4 +1,6 @@
-import java.util.*;
+package ec.edu.epn.tdd.bonus;
+
+import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {

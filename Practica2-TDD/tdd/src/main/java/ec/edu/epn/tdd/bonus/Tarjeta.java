@@ -1,4 +1,4 @@
-import java.util.Scanner;
+package ec.edu.epn.tdd.bonus;
 
 public class Tarjeta {
     private int numTarjeta;

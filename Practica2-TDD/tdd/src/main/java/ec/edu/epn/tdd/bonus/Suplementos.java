@@ -1,3 +1,5 @@
+package ec.edu.epn.tdd.bonus;
+
 import java.util.Scanner;
 
 public class Suplementos {

@@ -1,4 +1,4 @@
-import java.util.*;
+package ec.edu.epn.tdd.bonus;
 
 public class Membresia {
     private String tipo;

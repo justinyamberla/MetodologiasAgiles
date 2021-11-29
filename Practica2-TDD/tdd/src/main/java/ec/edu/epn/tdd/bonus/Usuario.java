@@ -1,8 +1,13 @@
+package ec.edu.epn.tdd.bonus;
+
 public class Usuario {
     private String nombreUsuario;
     private String contrasena;
     private Cliente cliente;
     private Bonus bono = new Bonus();
+
+    public Usuario() {
+    }
 
     public Usuario(String nombreUsuario, String contraseña, Cliente cliente) {
         this.nombreUsuario = nombreUsuario;
